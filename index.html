@@ -1,0 +1,207 @@
+<!doctype html>
+<html lang="es">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Catalogo de Productos</title>
+
+    <!-- ====================== ION ICON ====================== -->
+    <script type="module" src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"></script>
+    <script nomodule src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"></script>
+
+    <!-- ====================== BOOTSTRAP ====================== -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+
+    <!-- ====================== SWEET ALERT ====================== -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@sweetalert2/theme-dark@5/dark.css" />
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11/dist/sweetalert2.min.js"></script>
+
+    <!-- ====================== ANIMATE CSS ====================== -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css" />
+
+    <!-- ====================== JS ====================== -->
+    <script type="module" src="JS/firebase-data.js"></script>
+    <script src="JS/scoope.js"></script>
+
+    <!-- ====================== CSS ====================== -->
+    <link href="CSS/style.css" rel="stylesheet" />
+
+    <!-- =============== ROBOTO FONT =============== -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap"
+        rel="stylesheet">
+</head>
+
+<body>
+    <div class="container">
+        <div class="row mt-3 d-flex justify-content-center align-items-center full-heightx">
+            <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+                <div class="card shadow-lg p-5 mb-5 rounded p-3 animate__animated animate__backInDown bgCustom">
+                    <div class="row">
+                        <h3 class="text-center mb-2">Catalogo de Productos</h3>
+                        <hr>
+                        <div class="col-xs-12 col-sm-12 col-md-4 col-lg-4 mt-4">
+                            <label>Producto</label>
+                            <input type="text" class="form-control form-control-sm" placeholder="Nombre del Producto"
+                                id="txtNombre" />
+                        </div>
+                        <div class="col-xs-12 col-sm-12 col-md-4 col-lg-4 mt-4">
+                            <label>Descripcion</label>
+                            <input type="text" class="form-control form-control-sm"
+                                placeholder="Descripcion del Producto" id="txtDescripcion" />
+                        </div>
+                        <div class="col-xs-12 col-sm-12 col-md-4 col-lg-4 mt-4">
+                            <label>Unidad de Medida</label>
+                            <input type="text" class="form-control form-control-sm" placeholder="Unidad de Medida"
+                                id="txtUnidadMedida" />
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-xs-12 col-sm-12 col-md-4 col-lg-4 mt-4">
+                            <label>Precio Unitario</label>
+                            <input type="text" class="form-control form-control-sm" placeholder="Precio Unitario"
+                                id="txtPrecio" />
+                        </div>
+                        <div class="col-xs-12 col-sm-12 col-md-4 col-lg-4 mt-4">
+                            <label>Stock</label>
+                            <input type="text" class="form-control form-control-sm" placeholder="Descripcion del Stock"
+                                id="txtStock" />
+                        </div>
+                        <div class="col-xs-12 col-sm-12 col-md-4 col-lg-4 mt-4">
+                            <label>Codigo de Barras</label>
+                            <input type="text" class="form-control form-control-sm" placeholder="Codigo de Barras"
+                                id="txtCodigoBarras" />
+                        </div>
+                    </div>
+                    <div class="row text-center">
+                        <div class="col-xs-12 col-sm-12 col-md-6 col-lg-6 p-5 text-start">
+                            <p>Por favor selecciona el tipo Consistencia del Producto: </p>
+                            <hr>
+                            <input type="radio" id="solido" name="producto_c" value="Solido">
+                            <label for="solido">Solido</label><br>
+                            <input type="radio" id="liquido" name="producto_c" value="Liquido">
+                            <label for="liquido">Liquido</label><br>
+                            <input type="radio" id="granulado" name="producto_c" value="Granulado">
+                            <label for="granulado">Granulado</label>
+                        </div>
+                        <div class="col-xs-12 col-sm-12 col-md-6 col-lg-6 p-5 text-start">
+                            <p>Por favor selecciona el tipo de venta del producto:</p>
+                            <hr>
+                            <input type="checkbox" value="Mayoreo" id="chkMayoreo" name="Mayoreo" /> Mayoreo <br>
+                            <input type="checkbox" value="Menudeo" id="chkMenudeo" name="Menudeo" /> Menudeo <br>
+                            <input type="checkbox" value="Mostrador" id="chkMostrador" name="Mostrador" /> Mostrador
+                        </div>
+                        <div class="col-12">
+                            <div class="text-center">
+                                <button class="btn btn-sm btn-success" id="btnAgregar" disabled>Añadir Registro<ion-icon
+                                        name="add-circle-outline"></ion-icon></button>
+                            </div>
+                        </div>
+
+                        <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 mt-4">
+                            <table id="productoTabla" class="table table-dark table-striped">
+                                <thead>
+                                    <tr>
+                                        <th>Nombre</th>
+                                        <th>Descripcion</th>
+                                        <th>Precio</th>
+                                        <th>Unidad de Medida</th>
+                                        <th>Stock Inicial</th>
+                                        <th>Acciones</th>
+                                    </tr>
+                                </thead>
+                                <tbody></tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+                <hr class="animate__animated animate__backInDown lineaEnmedioPag" />
+                <div class="row">
+                    <div class="col-xs-12 col-sm-12 col-md-6 col-lg-6">
+                        <div
+                            class="card shadow-lg p-3 mb-5 bg-body-tertiary rounded animate__animated animate__backInDown bgCustom">
+                            <div class="alert">
+                                <p>Implementacion de una llamada a un recurso externo</p>
+                                <button class="btn btn-sm btn-light" id="btnConsumir">Obtener Data</button>
+                                <hr>
+                                <select name="select" class="form-control form-control-sm mt-1">
+                                    <option value="value1">Value 1</option>
+                                    <option value="value1" selected>Value 2</option>
+                                    <option value="value1">Value 3</option>
+                                </select>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="col-xs-12 col-sm-12 col-md-6 col-lg-6">
+                        <div
+                            class="card shadow-lg p-5 mb-5 bg-body-tertiary rounded animate__animated animate__backInDown bgCustom">
+                            <h4 class="card-title text-center">Calcular Impuestos <ion-icon
+                                    name="cash-outline"></ion-icon></h4>
+                            <hr>
+                            <div class="card-body">
+                                <div class="row">
+                                    <section class="d-flex justify-content-end align-items-end">
+                                        <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+                                            <label>IVA:</label>
+                                            <input type="text" id="txtIva" placeholder="IVA"
+                                                class="form-control form-control-sm" />
+                                        </div>
+                                    </section>
+
+                                    <section class="d-flex justify-content-end align-items-end mt-3">
+                                        <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+                                            <label>Precio Total:</label>
+                                            <input type="text" id="txtPrecioTotal" placeholder="Precio Total"
+                                                class="form-control form-control-sm" />
+                                        </div>
+                                    </section>
+
+                                    <div class="d-flex justify-content-end align-items-end mt-3">
+                                        <input type="button" value="Calcular" class="btn btn-sm btn-light"
+                                            id="btnCalcular" />
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz"
+        crossorigin="anonymous"></script>
+</body>
+
+</html>
+
+
+
+
+
+
+
+
+
+
+<script>
+    document.addEventListener('DOMContentLoaded', () => {
+        const boton = document.getElementById('btnConsumir');
+        boton.addEventListener('click', (event) => {
+            event.preventDefault();
+            //fetchQuote();
+            Swal.fire({
+                title: 'Tu solicitud fue procesada',
+                text: 'Los datos fueron cargados correctamente',
+                icon: 'success',
+                confirmButtonText: 'Cool'
+            });
+        })
+    });
+</script>

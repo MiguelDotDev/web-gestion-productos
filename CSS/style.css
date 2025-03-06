@@ -1,0 +1,97 @@
+body {
+  background-color: #575757;
+  background-image: repeating-radial-gradient(circle at 0 0, transparent 0, #575757 30px), repeating-linear-gradient(rgba(45, 45, 45, 0.3333333333), #2d2d2d);
+}
+
+.bgCustom {
+  background-color: rgb(44, 44, 44) !important;
+  color: white !important;
+  border-radius: 10px !important;
+  box-shadow: 0px 0px 35px 10px rgba(0, 0, 0, 0.35) !important;
+  -webkit-box-shadow: 0px 0px 35px 10px rgba(0, 0, 0, 0.35) !important;
+  -moz-box-shadow: 0px 0px 35px 10px rgba(0, 0, 0, 0.35) !important;
+}
+
+label:has(+ input[type=text]) {
+  margin-bottom: 20px;
+  font-family: "Roboto";
+  transition: 0.5s;
+}
+
+input[type=text] {
+  border: none;
+  border-radius: 0;
+  background-color: rgba(255, 255, 255, 0.0156862745);
+  border-bottom: 2px solid white;
+  color: white;
+}
+
+input[type=text]:disabled {
+  background-color: rgba(255, 255, 255, 0.0156862745);
+  border-bottom: 1px dotted white;
+}
+
+input[type=text]::-moz-placeholder {
+  color: rgb(170, 170, 170);
+}
+
+input[type=text]::placeholder {
+  color: rgb(170, 170, 170);
+}
+
+input[type=text]:disabled::-moz-placeholder {
+  color: rgb(114, 114, 114);
+  text-decoration: line-through;
+}
+
+input[type=text]:disabled::placeholder {
+  color: rgb(114, 114, 114);
+  text-decoration: line-through;
+}
+
+label:has(+ input[type=text]:disabled) {
+  color: #838383;
+}
+
+input[type=text]:focus {
+  background-color: transparent;
+  color: white;
+}
+
+label:has(+ input[type=text]:focus) {
+  padding-left: 20px;
+}
+
+h1 {
+  font-family: "Roboto";
+}
+
+table button {
+  border-radius: 50%;
+  width: 30px;
+  height: 30px;
+  border-color: transparent;
+  transition: 0.2s;
+}
+table button:hover {
+  background-color: rgb(151, 1, 1);
+  color: white;
+  box-shadow: 10px 10px 17px 7px rgba(0, 0, 0, 0.75);
+  -webkit-box-shadow: 10px 10px 17px 7px rgba(0, 0, 0, 0.75);
+  -moz-box-shadow: 10px 10px 17px 7px rgba(0, 0, 0, 0.75);
+}
+
+.lineaEnmedioPag {
+  border: 1px rgb(146, 146, 146) solid;
+}
+
+#btnAgregar {
+  font-size: 15px;
+  display: inline-flex;
+  justify-content: center;
+  align-items: center;
+}
+#btnAgregar ion-icon {
+  margin-left: 10px;
+  font-size: 25px;
+}/*# sourceMappingURL=style.css.map */
