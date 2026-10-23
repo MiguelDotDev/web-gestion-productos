@@ -4,12 +4,12 @@ import { getDatabase, ref, set, get, child } from "https://www.gstatic.com/fireb
 
 // Your web app's Firebase configuration
 const firebaseConfig = {
-    apiKey: "AIzaSyBmZPJx2Ii8pY_F-Cd9tgwEdZ164U6peik",
-    authDomain: "productosbd-ab4dc.firebaseapp.com",
-    projectId: "productosbd-ab4dc",
-    storageBucket: "productosbd-ab4dc.appspot.com",
-    messagingSenderId: "534102002899",
-    appId: "1:534102002899:web:ad24eb1c6514ffd7819826"
+    apiKey: "",
+    authDomain: "",
+    projectId: "",
+    storageBucket: "",
+    messagingSenderId: "",
+    appId: ""
 };
 
 // Inicializar Firebase
