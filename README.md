@@ -5,7 +5,7 @@
 </p>
 
 <p align="center">
-  <a href="https://example.com">
+  <a href="[https://example.com](https://migueldotdev.github.io/web-gestion-productos/)">
     <img src="https://img.shields.io/badge/Ver%20demo-Abrir%20aplicaci%C3%B3n-222222?style=for-the-badge&logo=github" alt="Ver demo">
   </a>
 </p>
